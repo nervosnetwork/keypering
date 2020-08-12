@@ -1,4 +1,4 @@
-import { getKeystoreFromXPrv, checkPassword, decryptKeystore } from '../../src/wallet/keystore'
+import { getKeystoreFromXPrv, checkPassword, decryptKeystore } from '../../../src/wallet/keystore'
 
 // REFACTOR: use existing test cases in neuron, should be reorgnized later
 describe('Test getKeystoreFromXPrv', () => {
