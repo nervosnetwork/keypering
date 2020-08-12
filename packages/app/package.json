@@ -12,7 +12,8 @@
     "build:watch": "yarn run tsc --watch",
     "precommit": "lint-staged",
     "clean:build": "rimraf ./build && rimraf ./public/ui",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "lint-staged": {
     "src/**/*.ts": [

@@ -57,7 +57,7 @@
             "addr": "ckb1qyqw975zuu9svtyxgjuq44lv7mspte0n2tmqqm3w53",
             "amount": "200,988.35422015 CKB",
             "data": null,
-            "lockName": "secp256k1",
+            "lockName": "Secp256k1",
             "type": null
           }
         ],
@@ -66,14 +66,14 @@
             "addr": "ckb1qyqdm0tlp845spzscxc76tyxjcjgm6gudqpqgjqpz6",
             "amount": "6,000 CKB",
             "data": null,
-            "lockName": "secp256k1",
+            "lockName": "Secp256k1",
             "type": null
           },
           {
             "addr": "ckb1qyqw975zuu9svtyxgjuq44lv7mspte0n2tmqqm3w53",
             "amount": "194,988.35322015 CKB",
             "data": null,
-            "lockName": "secp256k1",
+            "lockName": "Secp256k1",
             "type": null
           }
         ]
