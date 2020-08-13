@@ -98,17 +98,13 @@ export const checkPassword = (keystore: Keystore, password: string) => {
 }
 
 export const getKeystoreFromPath = (keystorePath: string, password: string) => {
-  try {
-    const keystore = JSON.parse(fs.readFileSync(keystorePath).toString('utf8')) as Keystore
-    if (!keystore) {
-      throw new UnsupportedCipherException()
-    }
-    const result = checkPassword(keystore, password)
-    if (!result) {
-      throw new IncorrectPasswordException()
-    }
-    return keystore
-  } catch (error) {
-    throw new UnsupportedCipherException()
+  const keystore = JSON.parse(fs.readFileSync(keystorePath).toString('utf8')) as Keystore
+  if (!keystore) {
+    throw new Error('Keystore is not found')
   }
+  const result = checkPassword(keystore, password)
+  if (!result) {
+    throw new IncorrectPasswordException()
+  }
+  return keystore
 }
