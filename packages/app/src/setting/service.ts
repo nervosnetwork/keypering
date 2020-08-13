@@ -96,7 +96,6 @@ export const getSetting = () => {
       ins: script,
     }
   })
-
   return { ...setting, locks }
 }
 
