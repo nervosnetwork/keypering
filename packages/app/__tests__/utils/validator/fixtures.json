@@ -1,0 +1,46 @@
+{
+  "validateJsonRpcFields": {
+    "should pass if params is valid": {
+      "params": [
+        {
+          "id": 1,
+          "method": "method",
+          "jsonrpc": "2.0"
+        }
+      ],
+      "exception": null
+    },
+    "should throw an error if params is null": {
+      "params": [null],
+      "exception": "Invalid jsonrpc request"
+    },
+    "should throw an error if id is missing": {
+      "params": [
+        {
+          "method": "method",
+          "jsonrpc": "2.0"
+        }
+      ],
+      "exception": "Invalid jsonrpc request"
+    },
+    "should throw an error if method is missing": {
+      "params": [
+        {
+          "id": 1,
+          "jsonrpc": "2.0"
+        }
+      ],
+      "exception": "Invalid jsonrpc request"
+    },
+    "should throw an error if jsonrpc is not 2.0": {
+      "params": [
+        {
+          "id": 1,
+          "method": "method",
+          "jsonrpc": "1.0"
+        }
+      ],
+      "exception": "Invalid jsonrpc request"
+    }
+  }
+}
