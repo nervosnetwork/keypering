@@ -23,7 +23,7 @@ const indexPath = path.resolve(dataPath, 'index.json')
 
 const getKeystorePath = (id: string) => path.resolve(dataPath, `${id}.json`)
 
-const udpateWalletIndex = (current: string, wallets: Channel.WalletProfile[]) => {
+const updateWalletIndex = (current: string, wallets: Channel.WalletProfile[]) => {
   fs.writeFileSync(indexPath, JSON.stringify({ current, wallets }))
   const setting = getSetting()
   broadcast({ current, wallets })
@@ -60,7 +60,7 @@ export const addKeystore = ({ name, password, keystore }: { name: string; passwo
 
   fs.writeFileSync(getKeystorePath(keystore.id), JSON.stringify(keystore))
   const profile = { name, xpub, id: keystore.id }
-  udpateWalletIndex(profile.id, [...wallets, profile])
+  updateWalletIndex(profile.id, [...wallets, profile])
   return profile
 }
 
@@ -69,7 +69,7 @@ export const selectWallet = (id: string) => {
   if (!wallets.some(w => w.id === id)) {
     throw new WalletNotFoundException()
   }
-  udpateWalletIndex(id, wallets)
+  updateWalletIndex(id, wallets)
 }
 
 export const updateWallet = ({ id, name }: { id: string; name: string }) => {
@@ -82,7 +82,7 @@ export const updateWallet = ({ id, name }: { id: string; name: string }) => {
     throw new WalletNotFoundException()
   }
   wallet.name = name
-  udpateWalletIndex(current, wallets)
+  updateWalletIndex(current, wallets)
   return true
 }
 
@@ -112,7 +112,7 @@ export const deleteWallet = async () => {
     ? newWallets[0].id
     : ''
   if (newCurrent) {
-    udpateWalletIndex(newCurrent, newWallets)
+    updateWalletIndex(newCurrent, newWallets)
   } else {
     broadcast({ current: newCurrent, wallets: newWallets })
   }
@@ -179,7 +179,7 @@ export const updateCurrentPassword = (currentPassword: string, newPassword: stri
   fs.unlinkSync(getKeystorePath(current))
   fs.writeFileSync(getKeystorePath(newKeystore.id), JSON.stringify(newKeystore))
   const profile = { name, xpub, id: newKeystore.id }
-  udpateWalletIndex(profile.id, [...newWallets, profile])
+  updateWalletIndex(profile.id, [...newWallets, profile])
   return true
 }
 

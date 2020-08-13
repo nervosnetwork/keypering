@@ -6,6 +6,7 @@ module.exports = {
       tsConfig: "tsconfig.test.json"
     }
   },
+  setupFiles: ['<rootDir>/__mock__/setup.ts'],
   moduleNameMapper: {
     electron: '<rootDir>/__mock__/electron.ts',
     axios: '<rootDir>/__mock__/axios.ts',
