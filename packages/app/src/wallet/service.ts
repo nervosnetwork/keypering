@@ -117,11 +117,7 @@ export const deleteWallet = async () => {
   const newCurrent = newWallets.length > 0
     ? newWallets[0].id
     : ''
-  if (newCurrent) {
-    updateWalletIndex(newCurrent, newWallets)
-  } else {
-    broadcast({ current: newCurrent, wallets: newWallets })
-  }
+  updateWalletIndex(newCurrent, newWallets)
   return newCurrent
 }
 
