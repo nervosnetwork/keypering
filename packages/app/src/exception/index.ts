@@ -81,6 +81,12 @@ export class FileNotFoundException extends Error {
   }
 }
 
+export class RemoveFileFailed extends Error {
+  constructor() {
+    super(`Failed to remove wallet keystore`)
+  }
+}
+
 export class NetworkNotFoundException extends Error {
   constructor() {
     super(`Network is not found`)
