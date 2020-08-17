@@ -1,6 +1,6 @@
 {
   "name": "@keypering/ui",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "private": true,
   "homepage": ".",
   "scripts": {
@@ -18,10 +18,10 @@
     ]
   },
   "dependencies": {
-    "@nervosnetwork/keyper-container": "0.1.0",
-    "@nervosnetwork/keyper-specs": "0.1.0",
     "@nervosnetwork/ckb-sdk-core": "0.34.0",
     "@nervosnetwork/ckb-sdk-utils": "0.34.0",
+    "@nervosnetwork/keyper-container": "0.1.0",
+    "@nervosnetwork/keyper-specs": "0.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-feather": "2.0.8",
@@ -29,7 +29,7 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "@keypering/specs": "0.0.0",
+    "@keypering/specs": "0.1.0-alpha.0",
     "@nervosnetwork/ckb-types": "0.34.0",
     "@types/react": "16.9.45",
     "@types/react-dom": "16.9.0",
