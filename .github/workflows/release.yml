@@ -2,11 +2,11 @@ name: Upload Artifacts to Release
 
 on:
   workflow_run:
-    workflows: 
+    workflows:
       - Tests
-    branches: 
+    branches:
       - master
-    types: 
+    types:
       - completed
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Keypering-Mac
-          path: release/Keypering-*-mac.zip
+          path: release/Keypering-*-mac.7z
 
       - name: Upload Keypering Win
         uses: actions/upload-artifact@v2

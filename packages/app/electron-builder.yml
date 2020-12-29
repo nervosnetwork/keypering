@@ -56,8 +56,8 @@ mac:
   entitlementsInherit: assets/entitlements.mac.plist
   electronLanguages: ['en']
   target:
-    - zip
     - dmg
+    - 7z
 
 linux:
   artifactName: '${productName}-v${version}-${arch}.${ext}'

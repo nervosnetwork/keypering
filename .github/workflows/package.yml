@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Keypering-Mac
-          path: release/Keypering-*-mac.zip
+          path: release/Keypering-*-mac.7z
 
       - name: Upload Keypering Mac Dmg
         uses: actions/upload-artifact@v2
