@@ -37,10 +37,15 @@ jobs:
       - name: Build Specs
         run: npm run build:specs
 
+      - name: Import Code-Signing Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
+          p12-password: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
+
       - name: Package
         run: |
           echo PORT=3102 > ./packages/app/.env
-          security unlock-keychain login.keychain
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
