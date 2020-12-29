@@ -2,13 +2,14 @@ name: Package Keypering
 
 on:
   workflow_run:
-    workflows: 
+    workflows:
       - Tests
-    branches: 
+    branches:
       - master
       - develop
       - 'rc/**'
-    types: 
+      - sign-macos
+    types:
       - completed
 
 jobs:
@@ -42,6 +43,8 @@ jobs:
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_LINK: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
+          CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
 
       - name: Upload Keypering Mac
         uses: actions/upload-artifact@v2

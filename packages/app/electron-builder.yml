@@ -48,8 +48,8 @@ mac:
   icon: assets/icons/icon.icns
   hardenedRuntime: true
   gatekeeperAssess: false
-  entitlements: assets/entitlements.plist
-  entitlementsInherit: assets/entitlements.plist
+  entitlements: assets/entitlements.mac.plist
+  entitlementsInherit: assets/entitlements.mac.plist
   electronLanguages: ['en']
   target: [zip]
 
