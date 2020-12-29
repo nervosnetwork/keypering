@@ -8,6 +8,10 @@ directories:
   buildResources: .
   output: ../../release
 
+dmg:
+  sign: false
+  artifactName: "${productName}-v${version}.${ext}"
+
 files:
   - package.json
   - from: build
@@ -51,7 +55,9 @@ mac:
   entitlements: assets/entitlements.mac.plist
   entitlementsInherit: assets/entitlements.mac.plist
   electronLanguages: ['en']
-  target: [zip]
+  target:
+    - zip
+    - dmg
 
 linux:
   artifactName: '${productName}-v${version}-${arch}.${ext}'
