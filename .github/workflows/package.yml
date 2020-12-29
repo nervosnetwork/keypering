@@ -16,6 +16,12 @@ jobs:
     name: Package Keypering
     runs-on: macos-latest
     steps:
+      - name: Import Code-Signing Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
+          p12-password: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -36,11 +42,6 @@ jobs:
       - name: Build Specs
         run: npm run build:specs
 
-      - name: Import Code-Signing Certificates
-        uses: Apple-Actions/import-codesign-certs@v1
-        with:
-          p12-file-base64: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
-          p12-password: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
 
       - name: Package
         run: |
@@ -50,8 +51,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_LINK: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
           CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
-          CSC_KEYCHAIN: signing_temp
-
 
       - name: Upload Keypering Mac
         uses: actions/upload-artifact@v2
