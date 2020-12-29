@@ -59,6 +59,12 @@ jobs:
           name: Keypering-Mac
           path: release/Keypering-*-mac.zip
 
+      - name: Upload Keypering Mac Dmg
+        uses: actions/upload-artifact@v2
+        with:
+          name: Keypering-Mac-Dmg
+          path: release/Keypering-*.dmg
+
       - name: Upload Keypering Win
         uses: actions/upload-artifact@v2
         with:
