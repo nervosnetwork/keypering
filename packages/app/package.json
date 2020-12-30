@@ -1,6 +1,6 @@
 {
   "name": "@keypering/app",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "",
   "author": "Keith <keithwhisper@gmail.com>",
   "homepage": "https://nervosnetwork.github.io/keypering",
@@ -32,7 +32,7 @@
     "url": "https://github.com/nervosnetwork/keypering/issues"
   },
   "devDependencies": {
-    "@keypering/specs": "0.1.0-alpha.4",
+    "@keypering/specs": "0.1.0-alpha.5",
     "@types/elliptic": "6.4.12",
     "@types/uuid": "8.0.1",
     "electron": "9.2.0",

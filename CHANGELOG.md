@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.5](https://github.com/nervosnetwork/keypering/compare/v0.1.0-alpha.4...v0.1.0-alpha.5) (2020-12-30)
+
+
+### Features
+
+* Add mainnet ACP deps info and update testnet acp info ([6cb3c20](https://github.com/nervosnetwork/keypering/commit/6cb3c204e42bf131fa88415cc7cb87a5fcc8bf31))
+* return networkId after auth ([b43c230](https://github.com/nervosnetwork/keypering/commit/b43c2305f3dc9d42e5b018a988105b0601acd43f))
+
+
+
+
+
 # [0.1.0-alpha.4](https://github.com/nervosnetwork/keypering/compare/v0.1.0-alpha.2...v0.1.0-alpha.4) (2020-12-21)
 
 
