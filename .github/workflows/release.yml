@@ -2,11 +2,11 @@ name: Upload Artifacts to Release
 
 on:
   workflow_run:
-    workflows: 
+    workflows:
       - Tests
-    branches: 
+    branches:
       - master
-    types: 
+    types:
       - completed
 
 jobs:
@@ -36,18 +36,32 @@ jobs:
       - name: Build Specs
         run: npm run build:specs
 
+      - name: Import Code-Signing Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
+          p12-password: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
+
       - name: Package
         run: |
           echo PORT=3102 > ./packages/app/.env
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_LINK: ${{ secrets.MAC_CERTIFICATE_BASE64 }}
+          CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
 
       - name: Upload Keypering Mac
         uses: actions/upload-artifact@v2
         with:
           name: Keypering-Mac
-          path: release/Keypering-*-mac.zip
+          path: release/Keypering-*-mac.7z
+
+      - name: Upload Keypering Dmg
+        uses: actions/upload-artifact@v2
+        with:
+          name: Keypering-Dmg
+          path: release/Keypering-*.dmg
 
       - name: Upload Keypering Win
         uses: actions/upload-artifact@v2

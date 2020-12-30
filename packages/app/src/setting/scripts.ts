@@ -6,8 +6,10 @@ import {
   SECP256K1_BLAKE160_DEVNET_TX_HASH,
   SECP256K1_BLAKE160_MAINNET_TX_HASH,
   SECP256K1_BLAKE160_TESTNET_TX_HASH,
-  ANYONE_CAN_PAY_CODE_HASH,
   ANYONE_CAN_PAY_TESTNET_TX_HASH,
+  ANYONE_CAN_PAY_MAINNET_CODE_HASH,
+  ANYONE_CAN_PAY_MAINNET_TX_HASH,
+  ANYONE_CAN_PAY_TESTNET_CODE_HASH,
 } from '../utils'
 
 const mainnetScripts: LockScript[] = [
@@ -20,6 +22,16 @@ const mainnetScripts: LockScript[] = [
       depType: 'depGroup',
     },
   ]),
+  new AnyPayLockScript(ANYONE_CAN_PAY_MAINNET_CODE_HASH, 'type', [
+    {
+      outPoint: {
+        txHash: ANYONE_CAN_PAY_MAINNET_TX_HASH,
+        index: '0x0',
+      },
+      depType: 'depGroup',
+    },
+  ]),
+
 ]
 
 const testnetScripts: LockScript[] = [
@@ -33,7 +45,7 @@ const testnetScripts: LockScript[] = [
     },
   ]),
 
-  new AnyPayLockScript(ANYONE_CAN_PAY_CODE_HASH, 'type', [
+  new AnyPayLockScript(ANYONE_CAN_PAY_TESTNET_CODE_HASH, 'type', [
     {
       outPoint: {
         txHash: ANYONE_CAN_PAY_TESTNET_TX_HASH,
